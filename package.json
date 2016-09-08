@@ -1,0 +1,25 @@
+{
+  "name": "react-native-flat-button",
+  "version": "1.0.0",
+  "description": "Flat button component for react-native",
+  "main": "button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melihmucuk/react-native-flat-button.git"
+  },
+  "keywords": [
+    "react-native",
+    "button",
+    "component",
+    "flat"
+  ],
+  "author": "Melih Mucuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/melihmucuk/react-native-flat-button/issues"
+  },
+  "homepage": "https://github.com/melihmucuk/react-native-flat-button#readme"
+}
