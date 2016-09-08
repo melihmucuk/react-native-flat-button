@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
@@ -10,8 +10,8 @@ class Button extends Component {
     static propTypes = {
         ...TouchableOpacity.propTypes,
         text: React.PropTypes.string.isRequired,
-        backgroundColor: React.PropTypes.string.isRequired,
-        borderColor: React.PropTypes.string.isRequired,
+        backgroundColor: React.PropTypes.string,
+        borderColor: React.PropTypes.string,
         borderRadius: React.PropTypes.number,
         shadowHeight: React.PropTypes.number,
         activeOpacity: React.PropTypes.number,
@@ -22,7 +22,9 @@ class Button extends Component {
     static defaultProps = {
         borderRadius: 8,
         shadowHeight: 4,
-        activeOpacity: 0.9
+        activeOpacity: 0.9,
+        backgroundColor: '#1abc9c',
+        borderColor: '#16a085'
     }
 
 
@@ -65,11 +67,11 @@ class Button extends Component {
   render() {
     return (
       <TouchableOpacity
-        onPress={() => console.log("onPress")}
+        onPress={this.props.onPress}
         onPressIn={this._pressIn}
         onPressOut={this._pressOut}
         activeOpacity={this.props.activeOpacity}
-        style={[styles.buttonContainer, this.props.containerStyle, {borderBottomWidth: this.state.borderBottomWidth, borderColor: this.state.borderColor, borderRadius: this.state.borderRadius, borderLeftWidth: this.state.borderLeftWidth, borderRightWidth: this.state.borderRightWidth}]}>
+        style={[styles.buttonContainer, this.props.containerStyle, {backgroundColor: this.props.backgroundColor, borderBottomWidth: this.state.borderBottomWidth, borderColor: this.state.borderColor, borderRadius: this.state.borderRadius, borderLeftWidth: this.state.borderLeftWidth, borderRightWidth: this.state.borderRightWidth}]}>
         <Text style={[styles.text, this.props.contentStyle]}>
             {this.props.text}
         </Text>
@@ -82,11 +84,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
       justifyContent: 'center',
       alignItems: 'center',
-      width: 150,
-      height: 50,
-      backgroundColor: '#1abc9c',
-      paddingVertical: 10,
-      paddingHorizontal: 20
   },
   text:{
       color: 'white',
