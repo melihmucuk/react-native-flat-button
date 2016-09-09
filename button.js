@@ -16,7 +16,8 @@ class Button extends Component {
         shadowHeight: React.PropTypes.number,
         activeOpacity: React.PropTypes.number,
         containerStyle: View.propTypes.style,
-        contentStyle: Text.propTypes.style
+        contentStyle: Text.propTypes.style,
+        type: React.PropTypes.string
     }
 
     static defaultProps = {
