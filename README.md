@@ -25,92 +25,105 @@ Flat button component for react-native
 ## Example
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
+  Alert,
   AppRegistry,
   StyleSheet,
   Text,
-  View
-} from 'react-native';
+  View,
+} from 'react-native'
 
-import Button from 'react-native-flat-button';
+import Button from 'react-native-flat-button'
 
 class Example extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
           Pre-Defined Buttons
         </Text>
 
         <Button
-          type={"primary"}
-          text={"Primary Button"}
-          onPress={this._onPress.bind(this)}
-          containerStyle={styles.buttonContainer}/>
+          type="primary"
+          onPress={() => Alert.alert('Primary Button')}
+          containerStyle={styles.buttonContainer}
+        >
+          Primary Button
+        </Button>
 
         <Button
-          type={"positive"}
-          text={"Positive Button"}
-          onPress={this._onPress.bind(this)}
-          containerStyle={styles.buttonContainer}/>
+          type="positive"
+          onPress={() => Alert.alert('Positive Button')}
+          containerStyle={styles.buttonContainer}
+        >
+          Positive Button
+        </Button>
 
         <Button
-          type={"negative"}
-          text={"Negative Button"}
-          onPress={this._onPress.bind(this)}
-          containerStyle={styles.buttonContainer}/>
+          type="negative"
+          onPress={() => Alert.alert('Negative Button')}
+          containerStyle={styles.buttonContainer}
+        >
+          Negative Button
+        </Button>
 
         <Button
-          type={"neutral"}
-          text={"Neutral Button"}
-          onPress={this._onPress.bind(this)}
-          containerStyle={styles.buttonContainer}/>
+          type="neutral"
+          onPress={() => Alert.alert('Neutral Button')}
+          containerStyle={styles.buttonContainer}
+        >
+          Neutral Button
+        </Button>
 
         <Button
-          type={"warn"}
-          text={"Warn Button"}
-          onPress={this._onPress.bind(this)}
-          containerStyle={styles.buttonContainer}/>
+          type="warn"
+          onPress={() => Alert.alert('Warn Button')}
+          containerStyle={styles.buttonContainer}
+        >
+          Warn Button
+        </Button>
 
         <Button
-          type={"info"}
-          text={"Info Button"}
-          onPress={this._onPress.bind(this)}
-          containerStyle={styles.buttonContainer}/>
+          type="info"
+          onPress={() => Alert.alert('Info Button')}
+          containerStyle={styles.buttonContainer}
+        >
+          Info Button
+        </Button>
 
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
           Custom Buttons
         </Text>
 
         <Button
-          type={"custom"}
-          text={"Custom Button"}
+          type="custom"
+          onPress={() => Alert.alert('Custom Button #1')}
           backgroundColor={"#1abc9c"}
           borderColor={"#16a085"}
           borderRadius={10}
           shadowHeight={5}
-          onPress={this._onPress.bind(this)}
           containerStyle={styles.buttonContainer}
-          contentStyle={styles.content}/>
+          contentStyle={styles.content}
+        >
+          Custom Button
+        </Button>
 
         <Button
-          type={"custom"}
-          text={"Custom Button"}
+          type="custom"
+          onPress={() => Alert.alert('Custom Button #2')}
           backgroundColor={"#9b59b6"}
           borderColor={"#8e44ad"}
-          borderRadius={16}
+          borderRadius={6}
           shadowHeight={8}
           activeOpacity={0.5}
-          onPress={this._onPress.bind(this)}
           containerStyle={styles.buttonContainer}
-          contentStyle={{fontSize: 22, fontWeight: '900'}}/>
+          contentStyle={{ fontSize: 22, fontWeight: '900' }}
+        >
+          Custom Button
+        </Button>
       </View>
-    );
-  }
-
-  _onPress(){
-    console.log("pressed");
+    )
   }
 }
 
@@ -129,7 +142,7 @@ const styles = StyleSheet.create({
   content:{
     fontSize: 22
   }
-});
+})
 
-AppRegistry.registerComponent('Example', () => Example);
+AppRegistry.registerComponent('Example', () => Example)
 ```
