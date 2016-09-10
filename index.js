@@ -4,8 +4,8 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native'
-
 import { buttonStyles, styles } from './styles'
+import { getPressInStyle } from './helpers'
 
 class Button extends Component {
     static propTypes = {
@@ -36,95 +36,91 @@ class Button extends Component {
     constructor(props){
         super(props)
 
+        const {
+          backgroundColor,
+          borderColor,
+          borderLeftWidth,
+          borderRadius,
+          borderRightWidth,
+          shadowHeight,
+          type,
+         } = this.props
+
         this._pressIn = this._pressIn.bind(this)
         this._pressOut = this._pressOut.bind(this)
 
         let defaultStyle = {}
-        let pressInStyle = {
-          borderBottomWidth: 0,
-          borderColor: 'transparent',
-          borderLeftWidth: 0,
-          borderRightWidth: 0
-        }
 
-        switch (this.props.type) {
+        switch (type) {
           case "custom":
             defaultStyle = {
-              borderRadius: this.props.borderRadius,
-              borderBottomWidth: this.props.shadowHeight,
-              backgroundColor: this.props.backgroundColor,
-              borderColor: this.props.borderColor,
-              borderLeftWidth: this.props.borderLeftWidth,
-              borderRightWidth: this.props.borderRightWidth
+              borderRadius: borderRadius,
+              borderBottomWidth: shadowHeight,
+              backgroundColor: backgroundColor,
+              borderColor: borderColor,
+              borderLeftWidth: borderLeftWidth,
+              borderRightWidth: borderRightWidth
             }
-
-            pressInStyle.backgroundColor = this.props.backgroundColor
-            pressInStyle.borderRadius = this.props.borderRadius
             break
 
           case "primary":
             defaultStyle = buttonStyles.primary
-            pressInStyle.backgroundColor = buttonStyles.primary.backgroundColor
             break
 
           case "neutral":
             defaultStyle = buttonStyles.neutral
-            pressInStyle.backgroundColor = buttonStyles.neutral.backgroundColor
           break
 
           case "warn":
             defaultStyle = buttonStyles.warn
-            pressInStyle.backgroundColor = buttonStyles.warn.backgroundColor
           break
 
           case "negative":
             defaultStyle = buttonStyles.negative
-            pressInStyle.backgroundColor = buttonStyles.negative.backgroundColor
           break
 
           case "positive":
             defaultStyle = buttonStyles.positive
-            pressInStyle.backgroundColor = buttonStyles.positive.backgroundColor
           break
 
           case "info":
             defaultStyle = buttonStyles.info
-            pressInStyle.backgroundColor = buttonStyles.info.backgroundColor
           break
 
           default:
             defaultStyle = buttonStyles.primary
-            pressInStyle.backgroundColor = buttonStyles.primary.backgroundColor
         }
 
         this.state = {
             defaultStyle,
-            pressInStyle,
+            pressInStyle: getPressInStyle(type, backgroundColor, borderRadius),
             style: defaultStyle,
+            isBorderPresent: true,
         }
     }
 
     _pressIn(){
         this.setState({
-            style: this.state.pressInStyle,
+            isBorderPresent: false,
         })
     }
 
     _pressOut(){
         this.setState({
-            style: this.state.defaultStyle,
+            isBorderPresent: true,
         })
     }
 
 
   render() {
+    const { isBorderPresent } = this.state
     return (
       <TouchableOpacity
         onPress={this.props.onPress}
         onPressIn={this._pressIn}
         onPressOut={this._pressOut}
         activeOpacity={this.props.activeOpacity}
-        style={[styles.buttonContainer, this.props.containerStyle, this.state.style]}>
+        style={[styles.buttonContainer, this.state.style, { borderBottomWidth: isBorderPresent ? 4 : 0 }, this.props.containerStyle]}>
         <Text style={[styles.text, this.props.contentStyle]}>
             {this.props.text}
         </Text>
