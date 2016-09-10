@@ -1,12 +1,28 @@
 # react-native-flat-button
 Flat button component for react-native
 
+![react-native flat button](http://i.giphy.com/3o6ZtfDAQbom8925J6.gif)
+
 ## Installation
 `npm i react-native-flat-button --save`
 
-## Demo
+## API
 
-![react-native flat button](http://i.giphy.com/3o6ZtfDAQbom8925J6.gif)
+| Prop | Type | Description |
+|------|------|-------------|
+| ``type`` | ``string``(required) | Type of button. Use predefined types: ``'primary'``, ``'neutral'``, ``'warn'``, ``'positive'``, ``'negative'``, ``'info'`` or use ``'custom'`` |
+| ``text`` | ``string``(required) | Button text prop. |
+| ``backgroundColor`` | ``string`` | Sets button's background color. |
+| ``borderColor`` | ``string`` | Sets button's border color. |
+| ``borderRadius`` | ``number`` | Sets button's border radius. |
+| ``shadowHeight`` | ``number`` | Sets button's border shadow. |
+| ``borderLeftWidth`` | ``number`` | Sets button's border left shadow. |
+| ``borderRightWidth`` | ``number`` | Sets button's border right shadow. |
+| ``activeOpacity`` | ``number`` | Sets button's onpressing transparency. (It should be between 0 to 1) |
+| ``containerStyle`` | ``View.propTypes.style`` | Sets button's style (Same as ``TouchableOpacity``) |
+| ``contentStyle`` | ``Text.propTypes.style`` | Sets button's text style (Same as ``Text``) |
+
+## Example
 
 ```javascript
 import React, { Component } from 'react';
