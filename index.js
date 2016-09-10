@@ -11,7 +11,6 @@ class Button extends Component {
     static propTypes = {
         ...TouchableOpacity.propTypes,
         type: React.PropTypes.string.isRequired,
-        text: React.PropTypes.string.isRequired,
         backgroundColor: React.PropTypes.string,
         borderColor: React.PropTypes.string,
         borderRadius: React.PropTypes.number,
@@ -113,16 +112,17 @@ class Button extends Component {
 
 
   render() {
-    const { isBorderPresent } = this.state
+    const { activeOpacity, children, containerStyle, contentStyle, onPress } = this.props
+    const { isBorderPresent, style } = this.state
     return (
       <TouchableOpacity
-        onPress={this.props.onPress}
+        onPress={onPress}
         onPressIn={this._pressIn}
         onPressOut={this._pressOut}
-        activeOpacity={this.props.activeOpacity}
-        style={[styles.buttonContainer, this.state.style, { borderBottomWidth: isBorderPresent ? 4 : 0 }, this.props.containerStyle]}>
-        <Text style={[styles.text, this.props.contentStyle]}>
-            {this.props.text}
+        activeOpacity={activeOpacity}
+        style={[styles.buttonContainer, style, { borderBottomWidth: isBorderPresent ? 4 : 0 }, containerStyle]}>
+        <Text style={[styles.text, contentStyle]}>
+            {children}
         </Text>
       </TouchableOpacity>
     )
