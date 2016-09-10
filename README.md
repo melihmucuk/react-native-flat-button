@@ -4,9 +4,9 @@ Flat button component for react-native
 ## Installation
 `npm i react-native-flat-button --save`
 
-##Demo
+## Demo
 
-![react-native flat button](http://i.giphy.com/l2SpRnlcEly0cKwxO.gif)
+![react-native flat button](http://i.giphy.com/3o6ZtfDAQbom8925J6.gif)
 
 ```javascript
 import React, { Component } from 'react';
@@ -23,23 +23,66 @@ class Example extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button 
-          text={"Hello"}
+        <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+          Pre-Defined Buttons
+        </Text>
+
+        <Button
+          type={"primary"}
+          text={"Primary Button"}
           onPress={this._onPress.bind(this)}
           containerStyle={styles.buttonContainer}/>
-        <Button 
-          text={"Hello"}
-          backgroundColor={"#e74c3c"}
-          borderColor={"#c0392b"}
+
+        <Button
+          type={"positive"}
+          text={"Positive Button"}
+          onPress={this._onPress.bind(this)}
+          containerStyle={styles.buttonContainer}/>
+
+        <Button
+          type={"negative"}
+          text={"Negative Button"}
+          onPress={this._onPress.bind(this)}
+          containerStyle={styles.buttonContainer}/>
+
+        <Button
+          type={"neutral"}
+          text={"Neutral Button"}
+          onPress={this._onPress.bind(this)}
+          containerStyle={styles.buttonContainer}/>
+
+        <Button
+          type={"warn"}
+          text={"Warn Button"}
+          onPress={this._onPress.bind(this)}
+          containerStyle={styles.buttonContainer}/>
+
+        <Button
+          type={"info"}
+          text={"Info Button"}
+          onPress={this._onPress.bind(this)}
+          containerStyle={styles.buttonContainer}/>
+
+        <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+          Custom Buttons
+        </Text>
+
+        <Button
+          type={"custom"}
+          text={"Custom Button"}
+          backgroundColor={"#1abc9c"}
+          borderColor={"#16a085"}
           borderRadius={10}
           shadowHeight={5}
           onPress={this._onPress.bind(this)}
           containerStyle={styles.buttonContainer}
           contentStyle={styles.content}/>
-        <Button 
-          text={"Hello"}
-          backgroundColor={"#3498db"}
-          borderColor={"#2980b9"}
+
+        <Button
+          type={"custom"}
+          text={"Custom Button"}
+          backgroundColor={"#9b59b6"}
+          borderColor={"#8e44ad"}
           borderRadius={16}
           shadowHeight={8}
           activeOpacity={0.5}
