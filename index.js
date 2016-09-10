@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  StyleSheet,
   View,
   Text,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 
-import {primary, neutral, warn, positive, negative, info} from './builtin';
+import { buttonStyles, styles } from './styles'
 
 class Button extends Component {
     static propTypes = {
@@ -40,8 +39,8 @@ class Button extends Component {
         this._pressIn = this._pressIn.bind(this)
         this._pressOut = this._pressOut.bind(this)
 
-        var defaultStyle = {}
-        var pressInStyle = {
+        let defaultStyle = {}
+        let pressInStyle = {
           borderBottomWidth: 0,
           borderColor: 'transparent',
           borderLeftWidth: 0,
@@ -59,68 +58,61 @@ class Button extends Component {
               borderRightWidth: this.props.borderRightWidth
             }
 
-            pressInStyle.backgroundColor = this.props.backgroundColor;
-            pressInStyle.borderRadius = this.props.borderRadius;
-            break;
+            pressInStyle.backgroundColor = this.props.backgroundColor
+            pressInStyle.borderRadius = this.props.borderRadius
+            break
 
           case "primary":
-            defaultStyle = primary;
-            pressInStyle.backgroundColor = primary.backgroundColor;
-            pressInStyle.borderRadius = primary.borderRadius;
-            break;
+            defaultStyle = buttonStyles.primary
+            pressInStyle.backgroundColor = buttonStyles.primary.backgroundColor
+            break
 
           case "neutral":
-            defaultStyle = neutral;
-            pressInStyle.backgroundColor = neutral.backgroundColor;
-            pressInStyle.borderRadius = neutral.borderRadius;
-          break;
+            defaultStyle = buttonStyles.neutral
+            pressInStyle.backgroundColor = buttonStyles.neutral.backgroundColor
+          break
 
           case "warn":
-            defaultStyle = warn;
-            pressInStyle.backgroundColor = warn.backgroundColor;
-            pressInStyle.borderRadius = warn.borderRadius;
-          break;
+            defaultStyle = buttonStyles.warn
+            pressInStyle.backgroundColor = buttonStyles.warn.backgroundColor
+          break
 
           case "negative":
-            defaultStyle = negative;
-            pressInStyle.backgroundColor = negative.backgroundColor;
-            pressInStyle.borderRadius = negative.borderRadius;
-          break;
+            defaultStyle = buttonStyles.negative
+            pressInStyle.backgroundColor = buttonStyles.negative.backgroundColor
+          break
 
           case "positive":
-            defaultStyle = positive;
-            pressInStyle.backgroundColor = positive.backgroundColor;
-            pressInStyle.borderRadius = positive.borderRadius;
-          break;
+            defaultStyle = buttonStyles.positive
+            pressInStyle.backgroundColor = buttonStyles.positive.backgroundColor
+          break
 
           case "info":
-            defaultStyle = info;
-            pressInStyle.backgroundColor = info.backgroundColor;
-            pressInStyle.borderRadius = info.borderRadius;
-          break;
+            defaultStyle = buttonStyles.info
+            pressInStyle.backgroundColor = buttonStyles.info.backgroundColor
+          break
 
           default:
-            defaultStyle = primary;
-            pressInStyle.backgroundColor = primary.backgroundColor;
-            pressInStyle.borderRadius = primary.borderRadius;
+            defaultStyle = buttonStyles.primary
+            pressInStyle.backgroundColor = buttonStyles.primary.backgroundColor
         }
 
         this.state = {
-            defaultStyle: defaultStyle,
-            pressInStyle: pressInStyle,
-            style: defaultStyle
+            defaultStyle,
+            pressInStyle,
+            style: defaultStyle,
         }
     }
 
     _pressIn(){
         this.setState({
-            style: this.state.pressInStyle
+            style: this.state.pressInStyle,
         })
     }
 
     _pressOut(){
         this.setState({
-            style: this.state.defaultStyle
+            style: this.state.defaultStyle,
         })
     }
 
@@ -137,20 +129,10 @@ class Button extends Component {
             {this.props.text}
         </Text>
       </TouchableOpacity>
-    );
+    )
   }
 }
 
-const styles = StyleSheet.create({
-  buttonContainer: {
-      justifyContent: 'center',
-      alignItems: 'center',
-  },
-  text:{
-      color: 'white',
-      fontSize: 18,
-      fontWeight: 'bold'
-  }
-});
 
-export default Button;
+
+export default Button
