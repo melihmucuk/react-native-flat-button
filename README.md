@@ -11,7 +11,6 @@ Flat button component for react-native
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | ``type`` | ``string``(required) | - | Type of button. Use predefined types: ``'primary'``, ``'neutral'``, ``'warn'``, ``'positive'``, ``'negative'``, ``'info'`` or use ``'custom'`` |
-| ``text`` | ``string``(required) | - | Button text prop. |
 | ``backgroundColor`` | ``string`` | ``'#34495e'`` | Sets button's background color. |
 | ``borderColor`` | ``string`` | ``'#2c3e50'`` | Sets button's border color. |
 | ``borderRadius`` | ``number`` | ``8``| Sets button's border radius. |
