@@ -2,7 +2,7 @@
   "name": "react-native-flat-button",
   "version": "1.0.2",
   "description": "Flat button component for react-native",
-  "main": "button.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
