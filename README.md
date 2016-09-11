@@ -1,4 +1,7 @@
 # react-native-flat-button
+
+[![npm version](https://badge.fury.io/js/react-native-flat-button.svg)](https://badge.fury.io/js/react-native-flat-button)
+
 Flat button component for react-native
 
 ![react-native flat button](http://i.giphy.com/3o6ZtfDAQbom8925J6.gif)
