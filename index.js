@@ -47,6 +47,7 @@ class Button extends Component {
     const { isBorderPresent, style } = this.state
     return (
       <TouchableOpacity
+        {...this.props}
         onPress={onPress}
         onPressIn={this._pressIn}
         onPressOut={this._pressOut}
