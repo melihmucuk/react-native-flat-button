@@ -42,7 +42,7 @@ class Button extends Component {
   }
 
   render() {
-    const { activeOpacity, children, containerStyle, contentStyle, onPress } = this.props
+    const { activeOpacity, children, containerStyle, contentStyle, onPress, shadowHeight } = this.props
     const { isBorderPresent, style } = this.state
     return (
       <TouchableOpacity
@@ -51,7 +51,7 @@ class Button extends Component {
         onPressIn={this._pressIn}
         onPressOut={this._pressOut}
         activeOpacity={activeOpacity}
-        style={[styles.buttonContainer, style, { borderBottomWidth: isBorderPresent ? 4 : 0 }, containerStyle]}>
+        style={[styles.buttonContainer, style, { borderBottomWidth: isBorderPresent ? shadowHeight : 0 }, containerStyle]}>
         <Text style={[styles.text, contentStyle]}>
             {children}
         </Text>
