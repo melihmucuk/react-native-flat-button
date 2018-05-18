@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { getDefaultStyle, getPressInStyle } from './helpers'
-import { staticDefaultProps, staticPropTypes } from './static'
+import { staticDefaultProps } from './static'
 import { buttonStyles, styles } from './styles'
 
 class Button extends Component {
-  static propTypes = {...staticPropTypes}
   static defaultProps = {...staticDefaultProps}
 
   constructor(props){
